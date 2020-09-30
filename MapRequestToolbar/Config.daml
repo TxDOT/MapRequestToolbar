@@ -1,43 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ArcGIS defaultAssembly="MapRequestToolbar.dll"
-        defaultNamespace="MapRequestToolbar"
-        xmlns="http://schemas.esri.com/DADF/Registry"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-
+﻿<ArcGIS defaultAssembly="MapRequestToolbar.dll" defaultNamespace="MapRequestToolbar" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
   <AddInInfo id="{d83b88b3-6727-4b2c-9e76-1b536c00d197}" version="1.0" desktopVersion="2.6.24783">
-    <Name>MapRequestToolbar</Name>   
-    <Description>MapRequestToolbar description</Description>
+    <Name>MapRequestToolbar</Name>
+    <Description>Tool allows users to acquire map templates, add map request number, download a standard folder structure, and if there is a pre-existing project, it will download that folder as well.</Description>
     <Image>Images\AddinDesktop32.png</Image>
-    <Author>MWASHBUR</Author>
-    <Company>Acme</Company>
+    <Author>TPP-DM</Author>
+    <Company>TxDOT TPP-Data Management</Company>
     <Date>9/29/2020 1:49:32 PM, 2020</Date>
     <Subject>Framework</Subject>
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
   </AddInInfo>
-
   <modules>
     <insertModule id="MapRequestToolbar_Module" className="Module1" autoLoad="false" caption="Module1">
       <!-- uncomment to have the control hosted on a separate tab-->
       <tabs>
-        <!--<tab id="MapRequestToolbar_Tab1" caption="New Tab">
+        <tab id="MapRequestToolbar_Tab1" caption="Map Requests">
           <group refID="MapRequestToolbar_Group1"/>
-        </tab>-->
+        </tab>
       </tabs>
-              
       <groups>
         <!-- comment this out if you have no controls on the Addin tab to avoid
               an empty group-->
-        <group id="MapRequestToolbar_Group1" caption="Group 1" appearsOnAddInTab="true">
-          <!-- host controls within groups -->
+        <group id="MapRequestToolbar_Group1" caption="File Management" appearsOnAddInTab="false">
+           <!--host controls within groups--> 
+          <button refID="MapRequestToolbar_GetTemplateButton" size="large" />
+          <button refID="MapRequestToolbar_UploadProjectFilesButton" size="large" />
+          <button refID="MapRequestToolbar_UploadMapToAGOButton" size="large" />
         </group>
       </groups>
-      
       <controls>
         <!-- add your controls here -->
-      </controls> 
-      
+        <button id="MapRequestToolbar_GetTemplateButton" caption="Template Creator" className="GetTemplateButton" loadOnClick="true" smallImage="Images\r2d2.png" largeImage="Images\r2d2.png">
+          <tooltip heading="Download Template">Download template and configure project directory.<disabledText /></tooltip>
+        </button>
+        <button id="MapRequestToolbar_UploadProjectFilesButton" caption="Upload Project Files" className="UploadProjectFilesButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">
+          <tooltip heading="Tooltip Heading">Tooltip text<disabledText /></tooltip>
+        </button>
+        <button id="MapRequestToolbar_UploadMapToAGOButton" caption="Upload Map To AGO" className="UploadMapToAGOButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">
+          <tooltip heading="Tooltip Heading">Tooltip text<disabledText /></tooltip>
+        </button>
+      </controls>
     </insertModule>
   </modules>
 </ArcGIS>
