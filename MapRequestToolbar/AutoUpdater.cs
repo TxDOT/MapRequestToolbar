@@ -37,39 +37,37 @@ namespace MapRequestToolbar
                 // Set source and local directories and get tbx files
                 var sourceDir = @"T:\DATAMGT\MAPPING\Map Requests\_Toolbar";
                 var localDir = Project.Current.HomeFolderPath;
-
                 var sourceTBX = Directory.GetFiles(sourceDir, "*.tbx");
                 var localTBX = Directory.GetFiles(localDir, "*.tbx");
-                return null;
+                
+                // Create lists to hold tbx files
+                var sourceList = new List<string>();
+                var localList = new List<string>();
 
-                //    var sourceList = new List<int>();
-                //    var localList = new List<int>();
+                // Loop through each tbx list and write to new lists
+                foreach (var i in sourceTBX)
+                {
+                    sourceList.Add(i);
+                }
+                foreach (var i in localTBX)
+                {
+                    localList.Add(i);
+                }
 
-                //    // Loop through each and extract most recent version
-                //    foreach (var i in sourceTBX)
-                //    {
-                //        var parseVer = Convert.ToInt32(Regex.Replace(i, "[^0-9]+", string.Empty));
-                //        sourceList.Add(parseVer);
-                //    }
-                //    foreach (var i in localTBX)
-                //    {
-                //        var parseVer = Convert.ToInt32(Regex.Replace(i, "[^0-9]+", string.Empty));
-                //        localList.Add(parseVer);
-                //    }
+                // update project folder with toolbox (assumes only 1 tbx in sourceDir)
+                var sourcePath = sourceList.ElementAt(0);
+                var toolName = Path.GetFileName(sourcePath);
+                var localPath = localDir + @"\" + toolName;
 
-                //    // Compare local version against source version and install most recent version
-                //    if (localList.Max() < sourceList.Max())
-                //    {
-                //        foreach (var i in localTBX)
-                //        {
-                //            File.Delete(i);
-                //        }
-                //        File.Copy(sourceDir + string.Format(@"\ETLQaQC_v{0}.tbx", sourceList.Max()),
-                //            localDir + string.Format(@"\ETLQaQC_v{0}.tbx", sourceList.Max()));
-                //    }
-                //    // Return correct version to launch tool
-                //    return sourceList.Max().ToString();
-
+                if (!File.Exists(localPath))
+                {
+                    if (!localList.Contains(sourceList.ElementAt(0)))
+                    {
+                        File.Copy(sourcePath, localPath);
+                    }
+                }
+                
+                return localPath;
             }
             catch (Exception e)
             {

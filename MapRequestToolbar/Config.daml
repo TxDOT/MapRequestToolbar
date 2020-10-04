@@ -30,7 +30,7 @@
       </groups>
       <controls>
         <!-- add your controls here -->
-        <button id="MapRequestToolbar_GetTemplateButton" caption="Template Creator" className="GetTemplateButton" loadOnClick="true" smallImage="Images\r2d2.png" largeImage="Images\r2d2.png">
+        <button id="MapRequestToolbar_GetTemplateButton" caption="Download Project Files" className="GetTemplateButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">
           <tooltip heading="Download Template">Download template and configure project directory.<disabledText /></tooltip>
         </button>
         <button id="MapRequestToolbar_UploadProjectFilesButton" caption="Upload Project Files" className="UploadProjectFilesButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">

@@ -8,6 +8,7 @@ using ArcGIS.Core.Data;
 using ArcGIS.Core.Geometry;
 using ArcGIS.Desktop.Catalog;
 using ArcGIS.Desktop.Core;
+using ArcGIS.Desktop.Core.Geoprocessing;
 using ArcGIS.Desktop.Editing;
 using ArcGIS.Desktop.Extensions;
 using ArcGIS.Desktop.Framework;
@@ -24,12 +25,17 @@ namespace MapRequestToolbar
         {
             try
             {
-                //call autoupdater method here
+                // Install the toolbox in project folder and set path to the toolbox
+                //var toolPath = AutoUpdater.UpdateToolbar() + @"\MapRequest\UploadProject";
+                var toolPath = AutoUpdater.UpdateToolbar() + @"\UploadToTDrive";
                 //set version path
                 //launch script tool from gp pane
                 //https://github.com/esri/arcgis-pro-sdk/wiki/ProConcepts-Geoprocessing#open-the-tool-dialog-in-the-geoprocessing-pane
 
-                MessageBox.Show("Uploading project files to T Drive...");
+                var projectPath = Project.Current.HomeFolderPath;
+                var existingOrNew = "";
+                var toolParams = Geoprocessing.MakeValueArray(projectPath, existingOrNew);
+                Geoprocessing.OpenToolDialog(toolPath, toolParams);
             }
             catch (Exception e)
             {

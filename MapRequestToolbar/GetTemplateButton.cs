@@ -8,6 +8,7 @@ using ArcGIS.Core.Data;
 using ArcGIS.Core.Geometry;
 using ArcGIS.Desktop.Catalog;
 using ArcGIS.Desktop.Core;
+using ArcGIS.Desktop.Core.Geoprocessing;
 using ArcGIS.Desktop.Editing;
 using ArcGIS.Desktop.Extensions;
 using ArcGIS.Desktop.Framework;
@@ -24,13 +25,24 @@ namespace MapRequestToolbar
         {
             try
             {
-                //call autoupdater method here
-                var toolPath = AutoUpdater.UpdateToolbar(); 
-                //set version path
+                // Install the toolbox in project folder and set path to the toolbox
+                var toolPath = AutoUpdater.UpdateToolbar() + @"\DownloadProjectFiles";
+
                 //launch script tool from gp pane
                 //https://github.com/esri/arcgis-pro-sdk/wiki/ProConcepts-Geoprocessing#open-the-tool-dialog-in-the-geoprocessing-pane
 
-                MessageBox.Show("Getting your template...");
+                // Set value array (empty values allow user full control) and launch tool
+                var dir = @"C:\Users\MWASHBUR\Desktop\MapRequestDev";
+                var mapReqID = "123";
+                var projectName = "ProjectName";
+                var exorNew = "New Template";
+                var pathtoEx = "";
+                var copyOldData = "";
+                var arcProDownload = "Yes";
+                var PAGX_Template = "Template_8.5 X 11 Portrait";
+                var toolParams = Geoprocessing.MakeValueArray(
+                    dir, mapReqID, projectName, exorNew, pathtoEx, copyOldData, arcProDownload, PAGX_Template);
+                Geoprocessing.OpenToolDialog(toolPath, toolParams);
             }
             catch (Exception e)
             {
