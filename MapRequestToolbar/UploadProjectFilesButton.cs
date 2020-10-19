@@ -25,14 +25,14 @@ namespace MapRequestToolbar
         {
             try
             {
-                // Install the toolbox in project folder and set path to the toolbox
-                //var toolPath = AutoUpdater.UpdateToolbar() + @"\MapRequest\UploadProject";
-                var toolPath = AutoUpdater.UpdateToolbar() + @"\UploadToTDrive";
-                //set version path
+                // Install the toolbox locally and set path to the toolbox
+                var toolPath = AutoUpdater.UpdateToolbar() + @"\UploadProject";
+
                 //launch script tool from gp pane
                 //https://github.com/esri/arcgis-pro-sdk/wiki/ProConcepts-Geoprocessing#open-the-tool-dialog-in-the-geoprocessing-pane
 
-                var projectPath = Project.Current.HomeFolderPath;
+                // Set value array (empty values allow user full control) and launch tool
+                var projectPath = "";
                 var existingOrNew = "";
                 var toolParams = Geoprocessing.MakeValueArray(projectPath, existingOrNew);
                 Geoprocessing.OpenToolDialog(toolPath, toolParams);

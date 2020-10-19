@@ -25,23 +25,22 @@ namespace MapRequestToolbar
         {
             try
             {
-                // Install the toolbox in project folder and set path to the toolbox
-                var toolPath = AutoUpdater.UpdateToolbar() + @"\DownloadProjectFiles";
+                // Install the toolbox locally and set path to the toolbox
+                var toolPath = AutoUpdater.UpdateToolbar() + @"\DownloadMapTemplate";
 
                 //launch script tool from gp pane
                 //https://github.com/esri/arcgis-pro-sdk/wiki/ProConcepts-Geoprocessing#open-the-tool-dialog-in-the-geoprocessing-pane
 
                 // Set value array (empty values allow user full control) and launch tool
-                var dir = @"C:\Users\MWASHBUR\Desktop\MapRequestDev";
-                var mapReqID = "123";
-                var projectName = "ProjectName";
-                var exorNew = "New Template";
+                var dir = "";
+                var mapReqID = "";
+                var projectName = "";
+                var exorNew = "";
                 var pathtoEx = "";
                 var copyOldData = "";
-                var arcProDownload = "Yes";
-                var PAGX_Template = "Template_8.5 X 11 Portrait";
+                var PAGX_Template = "";
                 var toolParams = Geoprocessing.MakeValueArray(
-                    dir, mapReqID, projectName, exorNew, pathtoEx, copyOldData, arcProDownload, PAGX_Template);
+                    dir, mapReqID, projectName, exorNew, pathtoEx, copyOldData, PAGX_Template);
                 Geoprocessing.OpenToolDialog(toolPath, toolParams);
             }
             catch (Exception e)

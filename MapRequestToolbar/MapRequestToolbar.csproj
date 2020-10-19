@@ -108,7 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Config.daml" />
+    <AddInContent Include="Config.daml">
+      <SubType>Designer</SubType>
+    </AddInContent>
     <AddInContent Include="Images\AddInDesktop16.png" />
     <AddInContent Include="Images\AddInDesktop32.png" />
     <AddInContent Include="DarkImages\AddInDesktop16.png" />
@@ -116,6 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoUpdater.cs" />
+    <Compile Include="Dockpane1.xaml.cs">
+      <DependentUpon>Dockpane1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dockpane1ViewModel.cs" />
     <Compile Include="GetTemplateButton.cs" />
     <Compile Include="Module1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,10 +141,52 @@
     <AddInContent Include="DarkImages\GenericButtonBlue32.png" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="DarkImages\r2d2.png" />
+    <Page Include="Dockpane1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\r2d2.png" />
+    <AddInContent Include="Images\GenericButtonPurple16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\GenericButtonPurple32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\GenericButtonPurple16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\GenericButtonPurple32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\AGO_DA_blue_background.png" />
+    <AddInContent Include="DarkImages\AGO_DA_has_transparency_1st_Option.png" />
+    <AddInContent Include="DarkImages\Helmet_T Upload.png" />
+    <AddInContent Include="DarkImages\Helmet_Upload_no_text.png" />
+    <AddInContent Include="DarkImages\Way_to_Maps_Image.png" />
+    <AddInContent Include="DarkImages\Way_to_Map_in_color_3rd_option_has_transparency.png" />
+    <AddInContent Include="DarkImages\Way_to_Map_sunset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AGO_DA_blue_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AGO_DA_has_transparency_1st_Option.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Helmet_T Upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Helmet_Upload_no_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Way_to_Map_in_color_3rd_option_has_transparency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Way_to_Map_sunset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Way_to_Maps_Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--

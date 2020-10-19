@@ -34,40 +34,35 @@ namespace MapRequestToolbar
             try
             {
 
-                // Set source and local directories and get tbx files
-                var sourceDir = @"T:\DATAMGT\MAPPING\Map Requests\_Toolbar";
-                var localDir = Project.Current.HomeFolderPath;
-                var sourceTBX = Directory.GetFiles(sourceDir, "*.tbx");
-                var localTBX = Directory.GetFiles(localDir, "*.tbx");
+                // Set source and local directories and get tbx and py files
+                var sourceDir = @"T:\DATAMGT\MAPPING\Map Requests\_Toolbar\tool_and_scripts";
+                //var localDir = Project.Current.HomeFolderPath;
+                var localDir = @"C:\TxDOT\MapRequestTools";
+                var localPath = localDir + @"\tools_and_scripts";
+                var filteredFiles = Directory
+                    .EnumerateFiles(sourceDir)
+                    .Where(file => file.ToLower().EndsWith("tbx") || file.ToLower().EndsWith("py"))
+                    .ToList();
                 
-                // Create lists to hold tbx files
-                var sourceList = new List<string>();
-                var localList = new List<string>();
+                // Get name of tbx file
+                var tbxName = Path
+                    .GetFileName(Directory.GetFiles(sourceDir, "*.tbx").ElementAt(0));
 
-                // Loop through each tbx list and write to new lists
-                foreach (var i in sourceTBX)
+                // Copy scripts and toolbox locally
+                if (!Directory.Exists(localPath))
                 {
-                    sourceList.Add(i);
-                }
-                foreach (var i in localTBX)
-                {
-                    localList.Add(i);
-                }
-
-                // update project folder with toolbox (assumes only 1 tbx in sourceDir)
-                var sourcePath = sourceList.ElementAt(0);
-                var toolName = Path.GetFileName(sourcePath);
-                var localPath = localDir + @"\" + toolName;
-
-                if (!File.Exists(localPath))
-                {
-                    if (!localList.Contains(sourceList.ElementAt(0)))
+                    System.IO.Directory.CreateDirectory(localPath);
+                    foreach (var i in filteredFiles)
                     {
-                        File.Copy(sourcePath, localPath);
+                        var localFile = localPath + @"\" + Path.GetFileName(i);
+                        File.Copy(i, localFile);
                     }
                 }
-                
-                return localPath;
+
+                // Return path to toobox
+                var tbxPath = localPath + @"\" + tbxName;
+                return tbxPath;
+
             }
             catch (Exception e)
             {
