@@ -168,25 +168,25 @@
     <AddInContent Include="DarkImages\Way_to_Map_sunset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\AGO_DA_blue_background.png" />
+    <AddInContent Include="Images\AGO_DA_blue_background.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\AGO_DA_has_transparency_1st_Option.png" />
+    <AddInContent Include="Images\AGO_DA_has_transparency_1st_Option.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Helmet_T Upload.png" />
+    <AddInContent Include="Images\Helmet_T Upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Helmet_Upload_no_text.png" />
+    <AddInContent Include="Images\Helmet_Upload_no_text.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Way_to_Map_in_color_3rd_option_has_transparency.png" />
+    <AddInContent Include="Images\Way_to_Map_in_color_3rd_option_has_transparency.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Way_to_Map_sunset.png" />
+    <AddInContent Include="Images\Way_to_Map_sunset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Way_to_Maps_Image.png" />
+    <AddInContent Include="Images\Way_to_Maps_Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--
