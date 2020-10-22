@@ -36,7 +36,8 @@ namespace MapRequestToolbar
                 var mapName = "";
                 var mapDesc = "";
                 var mapTags = "";
-                var toolParams = Geoprocessing.MakeValueArray(projectPath, mapName, mapDesc, mapTags);
+                var mapID = "";
+                var toolParams = Geoprocessing.MakeValueArray(projectPath, mapName, mapDesc, mapTags, mapID);
                 Geoprocessing.OpenToolDialog(toolPath, toolParams);
             }
             catch (Exception e)
