@@ -3,7 +3,7 @@
     <Name>MapRequestToolbar</Name>
     <Description>Tool allows users to acquire map templates, add map request number, download a standard folder structure, and if there is a pre-existing project, it will download that folder as well.</Description>
     <Image>Images\AddinDesktop32.png</Image>
-    <Author>TPP-DM</Author>
+    <Author>TPP-DM Joyce Chien</Author>
     <Company>TxDOT TPP-Data Management</Company>
     <Date>9/29/2020 1:49:32 PM, 2020</Date>
     <Subject>Framework</Subject>
