@@ -6,7 +6,6 @@
 # Usage: ArcGIS Pro/Python 2.7.8
 # Description: Create folders for Map Request Project and download map templates
 # ---------------------------------------------------------------------------
-#Test
 
 # Import arcpy module
 import os, sys
